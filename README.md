@@ -1,1 +1,419 @@
-# future.farming.io
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Do you want to explore your interests, develop new skills, or showcase your strengths? Explore the endless options available here at WCI Extracurriculars." />
+        <meta name="author" content="" />
+        <title>WCI Extracurriculars Website</title>
+        <!-- Favicon-->
+        <link rel="shortcut icon" type="image/png" href="assets/wcilogo.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/1d181eea71.js" crossorigin="anonymous"></script>
+        <script src="js/fetch_data.js"></script>
+
+    </head>
+    <body id="page-top" onload="loadPopupData();">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><h3 id="title">WCI Extracurriculars</h3></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="clubs.html">Clubs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="athletics.html">Athletics</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="arts.html">Arts <i class="fa fa-caret-down"></i></a>
+                            <ul>
+                                <li class="nav-item"><a class="nav-link" href="visual_arts.html">Visual Arts</a></li>
+                                <li class="nav-item"><a class="nav-link" href="music.html">Music</a></li>
+                                <li class="nav-item"><a class="nav-link" href="drama.html">Drama</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome to WCI Extracurriculars!</div>
+                <div class="masthead-heading text-uppercase">Explore Your Options</div>
+                <!-- Making a Search Bar -->
+                <form class="form">
+                    <input type="text" id="search_bar" class="search_bar" placeholder="Search for an extracurricular activity..." oninput="searchMainPage(this.value);">
+                    <a class="btn btn-primary btn-xl text-uppercase" id="search_button" onclick="searchMainPage(document.getElementById('search_bar').value);">Search</a>
+                </form>
+                <div class="results_container">
+                    <ul class="results_list" id="list">
+                        
+                    </ul>
+                </div>
+                <!-- End of the Search Bar -->
+                <!-- Social Media Links -->
+                <div class="social_media">
+                    <a href="https://www.instagram.com/wciinfo/?hl=en"><img src="assets/icons/instagram-white.png" class="main_sm_links"></a>
+                    <a href="https://m.facebook.com/profile.php?id=522793397786171"><img src="assets/icons/facebook-white.png" class="main_sm_links"></a>
+                    <a href="https://twitter.com/wciinfo"><img src="assets/icons/twitter-white.svg" class="main_sm_links"></a>
+                </div>
+            </div>
+        </header>
+        <!-- Upcoming Events -->
+        <!--
+        <section class="upcomingevents" id="upcomingevents">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Upcoming Events</h2>
+                    <h3 class="section-subheading text-muted" id="stitle">Check out the upcoming student activities</h3>
+
+                    <div class="slide_show">
+                        <h1>Testing Candy Grams!</h1>
+                        <img src="" alt="testing image graphic to be displayed">
+                    </div>
+
+                </div>
+            </div>
+        </section>-->
+        <!-- Weekly Events -->
+        <section class="upcomingevents" id="weekly_calendar">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">This Week's Events</h2>
+                    <h3 class="section-subheading text-muted" id="stitle">Check out what's happening this week...</h3>
+                    <table class="calendar_table">
+                        <tbody id="calendar">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Extracurriculars</h2>
+                    <h3 class="section-subheading text-muted">Check out some of our extracurriculars...</h3>
+                
+                    <div class="slideshows">
+                        <div class="slideshow-wrapper">
+                            <div id="clubs-slideshow" class="slideshow">Loading...</div>
+                        </div>
+
+                        <div class="slideshow-wrapper">
+                            <div id="athletics-slideshow" class="slideshow">Loading...</div>
+                        </div>
+
+                        <div class="slideshow-wrapper">
+                            <div id="music-slideshow" class="slideshow">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Calendar</h2>
+                    <h3 class="section-subheading text-muted">Check out the upcoming events...</h3>
+                    <div class="calendar_section">
+                        <iframe id="calendar" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0dQg4xlxdi1jbXJEb7Lo62cy6PoUjgpUSqfD2hpaCm8gqfTgpCwYlJvxxtajoRddgiN_f05b8jBke/pubhtml?gid=383966164&amp;single=true&amp;widget=true&amp;headers=false"></iframe><br>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">
+                Extracurriculars Quiz</h2>
+                <h3 class="section-subheading text-muted">Take this quiz to find our what category of clubs you should join ...</h3>
+            </div>
+            <div class="s1">
+                <div class="quiz_slide" id="quiz_slide_1">
+                    <h3>What is your favourite subject?</h3>
+                    <form id="one" name="one">
+                        <input class="1_op" id="1_op1" name="op1" type="radio" value="math">
+                        <label for="1_op1">Math</label><br>
+
+                        <input class="1_op" id="1_op2" name="op1" type="radio" value="science">
+                        <label for="1_op2">Science</label><br>
+
+                        <input class="1_op" id="1_op3" name="op1" type="radio" value="english">
+                        <label for="1_op3">English</label><br>
+
+                        <input class="1_op" id="1_op4" name="op1" type="radio" value="art">
+                        <label for="1_op4">Art</label><br>
+
+                        <input class="1_op" id="1_op5" name="op1" type="radio" value="gym">
+                        <label for="1_op5">Gym</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="s2">
+                <div class="quiz_slide" id="quiz_slide_2">
+                    <h3>What are your hobbies?</h3>
+                    <form id="two" name="two">
+                        <input class="1_op" id="1_op1" name="op2" type="radio" value="reading">
+                        <label for="1_op1">Reading</label><br>
+
+                        <input class="1_op" id="1_op2" name="op2" type="radio" value="coding">
+                        <label for="1_op2">Coding</label><br>
+
+                        <input class="1_op" id="1_op3" name="op2" type="radio" value="friends">
+                        <label for="1_op3">Hanging out with friends</label><br>
+
+                        <input class="1_op" id="1_op4" name="op2" type="radio" value="cooking">
+                        <label for="1_op4">Cooking</label><br>
+
+                        <input class="1_op" id="1_op5" name="op2" type="radio" value="studying">
+                        <label for="1_op5">Studying</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="s2">
+                <div class="quiz_slide" id="quiz_slide_3">
+                    <h3>How would you describe yourself?</h3>
+                    <form id="three" name="three">
+                        <input class="1_op" id="1_op1" name="op3" type="radio" value="creative">
+                        <label for="1_op1">Creative</label><br>
+
+                        <input class="1_op" id="1_op2" name="op3" type="radio" value="hard-working">
+                        <label for="1_op2">Hard-Working</label><br>
+
+                        <input class="1_op" id="1_op3" name="op3" type="radio" value="thoughtful">
+                        <label for="1_op3">Thoughtful</label><br>
+
+                        <input class="1_op" id="1_op4" name="op3" type="radio" value="artistic">
+                        <label for="1_op4">Artistic</label><br>
+
+                        <input class="1_op" id="1_op5" name="op3" type="radio" value="ambitiouse">
+                        <label for="1_op5">Ambitiouse</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="s2">
+                <div class="quiz_slide" id="quiz_slide_4">
+                    <h3>Do you like to participate in competitions?</h3>
+                    <form id="four" name="four">
+                        <input class="1_op" id="1_op1" name="op4" type="radio" value="yes">
+                        <label for="1_op1">Yes</label><br>
+
+                        <input class="1_op" id="1_op2" name="op4" type="radio" value="no">
+                        <label for="1_op2">No</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="s2">
+                <div class="quiz_slide" id="quiz_slide_5">
+                    <h3>Do you like to work on projects?</h3>
+                    <form id="five" name="five">
+                        <input class="1_op" id="1_op1" name="op5" type="radio" value="yes">
+                        <label for="1_op1">Yes</label><br>
+
+                        <input class="1_op" id="1_op2" name="op5" type="radio" value="no">
+                        <label for="1_op2">No</label><br>
+                    </form>
+
+                    <button onclick="results()">Get Results</button><br>
+                    <span id="output"></span>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Extracurriculars at WCI</h2>
+                    <h3 class="section-subheading text-muted">Why become involved at extracurriculars?</h3>
+                </div>
+                <div class="together">
+                    <div class="text_container">
+                        <p class="text_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae alias laudantium, maiores enim necessitatibus assumenda ratione, nulla itaque blanditiis veniam, ullam nihil? Quod distinctio impedit, harum quam animi, perferendis. Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Libero necessitatibus laudantium est ullam hic delectus itaque esse fugiat, quibusdam quas quidem distinctio nam perspiciatis praesentium, rem quo ratione voluptates, facere? Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi doloribus, excepturi ut, deleniti laborum, fugiat, vitae eius rerum aspernatur dolores delectus! Eos deleniti fuga id quis perspiciatis aspernatur autem esse.</p>
+                    </div>
+                    <div class="picture_slides">
+                        <img src="https://pbs.twimg.com/media/DoH3ejnXUAAY1mm.jpg" class="slides_show_img">
+                    </div> 
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">What are you interested in?</h2>
+                    <h3 class="section-subheading text-muted">Explore all of your options!</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="clubs.html"><div class="option-colour-circle background-blue"></div></a>
+                            <h4>Clubs</h4>
+                            <p class="text-muted">Lorem ipsum dolor</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="athletics.html"><div class="option-colour-circle background-red"></div></a>
+                            <h4>Athletics</h4>
+                            <p class="text-muted">Lorem ipsum dolor</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="arts.html"><div class="option-colour-circle background-white"></div></a>
+                            <h4>Arts</h4>
+                            <p class="text-muted">Lorem ipsum dolor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Questions -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">FAQ</h2>
+                </div>
+            </div>
+            <div class="question_block">
+                <div class="container">
+                    <button class="faq-btn">
+                        <div class="question">
+                            <h3 class="ques_txt">How do I join a club?</h3>
+                        </div>
+                        <div class="answer">
+                            <p>Many clubs start in September, so be on the lookout for any posters, announcements, or Google Classrooms that may state the first meeting date. If you are planning to join after the first club meeting, contact the student leaders. Although most clubs will allow new members to join throughout the school year, some select clubs are based on an application process that only occurs at the beginning of the school year.</p>
+                        </div>
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div class="question_block">
+                <div class="container">
+                    <button class="faq-btn">
+                        <div class="question">
+                            <h3 class="ques_txt">How many club credits do I need for WCI's Blue W award?</h3>
+                        </div>
+                    </button>
+                    <div class="answer">
+                        <p>At WCI, awards are presented to students who demonstrate excellence in academics, extra-curricular activities, and athletics. The extra-curricular activities award, also known as the Blue W, is earned through a point system. Most clubs and groups count for one point, and a maximum of 3 points may be earned by a student per year. For students attending high school for four years, a minimum of 8 points is required for the Blue W. For students attending high school for five years, a minimum of 10 points is required.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question_block">
+                <div class="container">
+                    <button class="faq-btn">
+                        <div class="question">
+                            <h3 class="ques_txt">How do I form a club?</h3>
+                        </div>
+                    </button>
+                    <div class="answer">
+                        <p>If you have an idea for a new club at WCI, you must first find a teacher to act as a staff supervisor. You can also grab a few friends to help you start and plan the club! Next, design a club logo. Then, fill out this Google Form to confirm the creation of your new club. Consider setting up a Google Classroom or an Instagram account for easy communication within the club. Good luck!</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+            
+        <!-- Not Permanent Google Site links-->
+        <section>
+            <div class="container">
+                <h1>Want to learn more about WCI Extracurriculars?</h1>
+                <h3>Browse the CLUBS, ATHLETICS, or ARTS pages for more info!</h3>
+		<h3>Alternatively, check out the external Google Sites.</h2>
+                <ul>
+                    <li>
+                        <a href="https://sites.google.com/wrdsb.ca/wci-club-2020-2021/home" target="_blank">Club Fair 2021-2022</a>
+                    </li>
+
+                    <li>
+                        <a href="https://sites.google.com/wrdsb.ca/wci-sports" target="_blank">WCI Athletics</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://sites.google.com/wrdsb.ca/wciarts/home" target="_blank">WCI Arts</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://wci.wrdsb.ca/academics/music/" target="_blank">WCI Music</a>        
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; <a href="https://wci.wrdsb.ca/">Waterloo Collegiate Institute</a> 2021</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a href="https://www.instagram.com/wciinfo/?hl=en"><img src="assets/icons/instagram-white.svg" class="footer_sm_links"></a>
+                    <a href="https://m.facebook.com/profile.php?id=522793397786171"><img src="assets/icons/facebook-white.svg" class="footer_sm_links"></a>
+                    <a href="https://twitter.com/wciinfo"><img src="assets/icons/twitter-white.svg" class="footer_sm_links"></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                    <div class="col-lg-4 text-lg-start">Designed and Developed by <button id="contributors">WCI Web-Dev</button><br><br>
+                        <div id="people">
+                            <a href="mailto:mariyatur27@gmail.com" class="contributors" id="mariya">MT</a>
+                            <a href="mailto:akhan1295@wrdsb.ca" class="contributors" id="nuha">NA</a>
+                            <a href="mailto:hoc8374@wrdsb.ca" class="contributors" id="charis">CH</a>
+                            <a href="mailto:olent1333@wrdsb.ca" class="contributors" id="tristan">TO</a>
+                            <a href="mailto:lauc5177@wrdsb.ca" class="contributors" id="chinglam">CL</a>
+                            <a href="mailto:kimj5674@wrdsb.ca" class="contributors" id="jiwon">JK</a>
+                            <a href="mailto:bellb6022@wrdsb.ca" class="contributors" id="brian">BB</a>
+                            <a href="mailto:rahba6907@wrdsb.ca" class="contributors" id="ali">AR</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Event Pop-Up - should add option to dismiss forever -->
+<!--         <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-0b76d24d-84cb-4db0-8a1a-3353348466eb"></div> -->
+        <!-- Core theme JS-->
+        <div class="event-popup" id="event-popup">
+			<img class="event-popup-icon" id="event-popup-icon">
+            <p class="event-popup-text" id="event-popup-text">
+            </p>
+			<p class="event-popup-close" id="event-popup-text" onclick="closePopup()">x</p>
+        </div>
+        <script src="js/index.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/slides.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/faq_boxes.js"></script>
+		<script src="js/event_popup.js"></script>
+        <script src="js/extracurricular_boxes.js"></script>
+    </body>
+</html>
